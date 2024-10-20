@@ -196,27 +196,45 @@ namespace fdsafdsafdsa
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var czas = System.Diagnostics.Stopwatch.StartNew();
             InsertSort(tablica);
+            czas.Stop();
+            label2.Text = $"Czas sortowania: {czas.ElapsedMilliseconds} ms";
+
             WyswietlPosortowanaTablice();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            var czas = System.Diagnostics.Stopwatch.StartNew();
             MergeSort(tablica, 0, tablica.Length - 1);
+            czas.Stop();
+            label2.Text = $"Czas sortowania: {czas.ElapsedMilliseconds} ms";
+
+           
             WyswietlPosortowanaTablice();
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            var czas = System.Diagnostics.Stopwatch.StartNew();
             CountingSort(tablica);
+            czas.Stop();
+            label2.Text = $"Czas sortowania: {czas.ElapsedMilliseconds} ms";
+
             WyswietlPosortowanaTablice();
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            var czas = System.Diagnostics.Stopwatch.StartNew();
             QuickSort(tablica, 0, tablica.Length - 1);
+            czas.Stop();
+            label2.Text = $"Czas sortowania: {czas.ElapsedMilliseconds} ms";
+
+           
             WyswietlPosortowanaTablice();
         }
 
