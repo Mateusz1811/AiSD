@@ -165,19 +165,19 @@ namespace fdsafdsafdsa
 
         private void WyswietlTablice()
         {
-            listBox1.Items.Clear();
+            ListBox1.Items.Clear();
             for (int i = 0; i < Math.Min(15, tablica.Length); i++)
             {
-                listBox1.Items.Add(tablica[i]);
+                ListBox1.Items.Add(tablica[i]);
             }
         }
 
         private void WyswietlPosortowanaTablice()
         {
-            listBox1.Items.Clear();
+            ListBox1.Items.Clear();
             for (int i = 0; i < Math.Min(15, tablica.Length); i++)
             {
-                listBox1.Items.Add(tablica[i]);
+                ListBox1.Items.Add(tablica[i]);
             }
         }
 
@@ -186,7 +186,10 @@ namespace fdsafdsafdsa
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var czas = System.Diagnostics.Stopwatch.StartNew();
             BubbleSort(tablica);
+            czas.Stop();
+            label2.Text = $"Czas sortowania: {czas.ElapsedMilliseconds} ms";
 
             WyswietlPosortowanaTablice();
         }
@@ -219,27 +222,28 @@ namespace fdsafdsafdsa
 
         private void button7_Click(object sender, EventArgs e)
         {
-            int size = int.Parse(textBox2.Text);
+            int rozmiar = int.Parse(textBox2.Text);
             Random rand = new Random();
-            tablica = new int[size];
-            for (int i = 0; i < size; i++)
+            tablica = new int[rozmiar];
+            for (int i = 0; i < rozmiar; i++)
             {
                 tablica[i] = rand.Next(1, 1000);
             }
+            WyswietlTablice();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
-            
-                string[] inputNumbers = textBox1.Text.Split(',');
-                tablica = Array.ConvertAll(inputNumbers, int.Parse);
-                WyswietlTablice();
-            
+
+
+            string[] inputNumbers = textBox1.Text.Split(',');
+            tablica = Array.ConvertAll(inputNumbers, int.Parse);
+            WyswietlTablice();
+
 
         }
 
-        
+
     }
 }
 
